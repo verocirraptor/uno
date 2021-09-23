@@ -21,6 +21,8 @@ function Juego() {
         };
         var partida = new Partida(codigo, jugador, numJug);
         this.partidas[codigo] = partida;
+
+        return partida;
     }
 
     this.unirAPartida = function (codigo, nick) {
@@ -40,6 +42,10 @@ function Juego() {
         }
         return codigo.join('');
     }
+
+    this.numeroPartidas = function () {
+        return Object.keys(this.partidas).length;
+    }
 }
 
 function randomInt(low, high) {
@@ -50,7 +56,7 @@ function Jugador(nick, juego) {
     this.nick = nick;
     this.juego = juego;
     this.crearPartida = function (numJug) {
-        this.juego.crearPartida(nick, numJug);
+        return this.juego.crearPartida(nick, numJug);
     }
     this.unirAPartida = function (codigo) {
         this.juego.unirAPartida(codigo, nick);
@@ -79,6 +85,7 @@ function Partida(codigo, jugador, numJug) {
 }
 
 function Inicial() {
+    this.nombre = "inicial";
     this.unirAPartida = function (partida, jugador) {
         //si numero jugadores < numJug
         partida.puedeUnirAPartida(jugador);
@@ -90,12 +97,14 @@ function Inicial() {
 }
 
 function Jugando() {
+    this.nombre = "jugando";
     this.unirAPartida = function (partida, jugador) {
         console.log("La partida ya ha comenzado");
     }
 }
 
 function Final() {
+    this.nombre = "final";
     this.unirAPartida = function (partida, jugador) {
         console.log("La partida ya ha terminazo");
     }
