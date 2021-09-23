@@ -82,7 +82,7 @@ function Inicial() {
     this.unirAPartida = function (partida, jugador) {
         //si numero jugadores < numJug
         partida.puedeUnirAPartida(jugador);
-        if (partida.numeroJugadores == partida.numJug) {
+        if (partida.numeroJugadores() == partida.numJug) {
             partida.fase = new Jugando();
         }
 
