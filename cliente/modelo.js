@@ -181,10 +181,12 @@ function Mas2(valor, color) {
     this.color = color;
 }
 
-function Comodin(valor) {
+function Comodin(valor, tipo) {
     this.valor = valor;
+    this.tipo = tipo;
 }
 
-function Comodin4(valor) {
+function Comodin4(valor, tipo) {
     this.valor = valor;
+    this.tipo = tipo;
 }
