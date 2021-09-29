@@ -16,13 +16,24 @@ function Juego() {
         var codigo = "-1";
         var jugador = this.usuarios[nick];
         codigo = this.obtenerCodigo();
-        while (this.partidas[codigo]) {
-            codigo = this.obtenerCodigo();
-        };
+        // while (this.partidas[codigo]) {
+        //     codigo = this.obtenerCodigo();
+        // };
         var partida = new Partida(codigo, jugador, numJug);
         this.partidas[codigo] = partida;
 
         return partida;
+    }
+
+    this.obtenerTodasPartidas = function () {
+        var lista = [];
+
+        for (each in this.partidas) {
+            var partida = this.partidas[each];
+            lista.push({ propietario: partida.propietario, codigo: each });
+        }
+
+        return lista;
     }
 
     this.unirAPartida = function (codigo, nick) {
@@ -33,14 +44,15 @@ function Juego() {
     }
 
     this.obtenerCodigo = function () {
-        let cadena = "ABCDEFGHIJKLMNOPQRSTUVXYZ";
-        let letras = cadena.split('');
-        let maxCadena = cadena.length;
-        let codigo = [];
-        for (i = 0; i < 6; i++) {
-            codigo.push(letras[randomInt(1, maxCadena) - 1]);
-        }
-        return codigo.join('');
+        // let cadena = "ABCDEFGHIJKLMNOPQRSTUVXYZ";
+        // let letras = cadena.split('');
+        // let maxCadena = cadena.length;
+        // let codigo = [];
+        // for (i = 0; i < 6; i++) {
+        //     codigo.push(letras[randomInt(1, maxCadena) - 1]);
+        // }
+        // return codigo.join('');
+        return Date.now().toString();
     }
 
     this.numeroPartidas = function () {
@@ -65,6 +77,7 @@ function Jugador(nick, juego) {
 
 function Partida(codigo, jugador, numJug) {
     this.codigo = codigo;
+    this.cartas = [];
     this.propietario = jugador.nick;
     this.numJug = numJug;
     this.jugadores = {};
@@ -81,6 +94,44 @@ function Partida(codigo, jugador, numJug) {
         return Object.keys(this.jugadores).length;
     }
 
+    this.crearMazo = function () {
+        var colores = ["azul", "amarillo", "rojo", "verde"];
+        for (i = 0; i < colores.length; i++) {
+            this.cartas.push(new Numero(0, colores[i]));
+        }
+
+        for (i = 0; i < colores.length; i++) {
+            for(j = 1; j < 10; j++) {
+            this.cartas.push(new Numero(j, colores[i]));
+            this.cartas.push(new Numero(j, colores[i]));
+            }
+        }
+
+        for (i = 0; i < colores.length; i++) {
+            this.cartas.push(new Cambio(20, colores[i]));
+            this.cartas.push(new Cambio(20, colores[i]));
+        }
+
+        for (i = 0; i < colores.length; i++) {
+            this.cartas.push(new Bloqueo(20, colores[i]));
+            this.cartas.push(new Bloqueo(20, colores[i]));
+        }
+
+        for (i = 0; i < colores.length; i++) {
+            this.cartas.push(new Mas2(20, colores[i]));
+            this.cartas.push(new Mas2(20, colores[i]));
+        }
+
+        for (i = 0; i < colores.length; i++) {
+            this.cartas.push(new Comodin(50, "comodin"));
+        }
+
+        for (i = 0; i < colores.length; i++) {
+            this.cartas.push(new Comodin4(50, "comodin4"));
+        }
+    }
+
+    this.crearMazo();
     this.unirAPartida(jugador);
 }
 
@@ -110,7 +161,30 @@ function Final() {
     }
 }
 
-function Carta(color, tipo) {
+function Numero(valor, color) {
+    this.valor = valor;
     this.color = color;
-    this.tipo = tipo;
+}
+
+function Cambio(valor, color) {
+    this.valor = valor;
+    this.color = color;
+}
+
+function Bloqueo(valor, color) {
+    this.valor = valor;
+    this.color = color;
+}
+
+function Mas2(valor, color) {
+    this.valor = valor;
+    this.color = color;
+}
+
+function Comodin(valor) {
+    this.valor = valor;
+}
+
+function Comodin4(valor) {
+    this.valor = valor;
 }
