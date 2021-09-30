@@ -104,6 +104,16 @@ describe("El juego del UNO", function () {
       expect(partida.fase.nombre).toBe("jugando");
     });
 
+    it("Comprobar que se roban cartas", function () {
+      var mazoLong;
+      mazoLong = partida.mazo.length;
+      ju1.manoInicial();
+      ju1.robarCarta(3);
+      expect(ju1.mano.length).toEqual(10);
+    });
+
+    //mano inicial :: el mazo se ha decrementado y en la mano del jugador hay 7 cartas
+
   });
 
 });

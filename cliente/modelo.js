@@ -153,7 +153,7 @@ function Partida(codigo, jugador, numJug) {
     this.asignarUnaCarta = function () {
         var maxCartas = this.mazo.length;
         var indice = randomInt(1, maxCartas - 1);
-        var carta = partida.mazo.splice(indice, 1);
+        var carta = this.mazo.splice(indice, 1);
         return carta[0];
     }
 
