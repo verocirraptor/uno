@@ -22,6 +22,10 @@ describe("El juego del UNO", function () {
       partida = ju1.crearPartida(2);
     });
 
+    it("Comprobar obtener partida", function () {
+      var codigo = ju1.codigoPartida;
+      expect(ju1.obtenerPartida(codigo)).toBeDefined();
+    });
 
     it("Comprobar mazo", function () {
       expect(partida.mazo.length).toBe(108);

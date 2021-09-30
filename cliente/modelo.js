@@ -78,7 +78,9 @@ function Jugador(nick, juego) {
 
     this.robarCarta = function (num) {
         var partida = this.obtenerPartida(this.codigoPartida);
-        this.mano.concat(partida.dameCartas(num));
+        var robadas = partida.dameCartas(num);
+        var tmp = this.mano;
+        this.mano = tmp.concat(robadas);
     }
 
     this.manoInicial = function () {
