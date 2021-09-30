@@ -101,9 +101,9 @@ function Partida(codigo, jugador, numJug) {
         }
 
         for (i = 0; i < colores.length; i++) {
-            for(j = 1; j < 10; j++) {
-            this.cartas.push(new Numero(j, colores[i]));
-            this.cartas.push(new Numero(j, colores[i]));
+            for (j = 1; j < 10; j++) {
+                this.cartas.push(new Numero(j, colores[i]));
+                this.cartas.push(new Numero(j, colores[i]));
             }
         }
 
@@ -129,6 +129,21 @@ function Partida(codigo, jugador, numJug) {
         for (i = 0; i < colores.length; i++) {
             this.cartas.push(new Comodin4(50, "comodin4"));
         }
+    }
+
+    this.asignarUnaCarta = function () {
+        var numAleatorio = randomInt(1, partida.cartas.length);
+        var lista = [];
+        var lista = partida.cartas.splice(numAleatorio, 1);
+        return lista[0];
+    }
+
+    this.dameCartas = function (num) {
+        var mano = [];
+        for (i = 0; i < num; i++) {
+            mano.push(this.asignarUnaCarta());
+        }
+        return mano;
     }
 
     this.crearMazo();
