@@ -1,0 +1,33 @@
+{
+  "name": "uno",
+  "version": "1.0.0",
+  "description": "Trabajo de la asignatura de Procesos ingeniería del Software del curso 2021/22",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/jasmine-node servidor"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/verocirraptor/uno.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/verocirraptor/uno/issues"
+  },
+  "homepage": "https://verocirraptor.github.io/uno/",
+  "dependencies": {
+    "@sendgrid/mail": "^7.6.0",
+    "body-parser": "^1.19.0",
+    "cookie-session": "^1.4.0",
+    "express": "^4.17.1",
+    "jasmine-node": "^3.0.0",
+    "loader": "^2.1.1",
+    "mongodb": "^4.2.0",
+    "passport": "^0.5.0",
+    "passport-google-oauth": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "sendgrid": "^5.2.3",
+    "socket.io": "^4.3.1"
+  }
+}
