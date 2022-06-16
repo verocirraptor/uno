@@ -14,7 +14,7 @@ passport.deserializeUser(function (user, done) {
 passport.use(new GoogleStrategy({
     clientID: "240617624599-m717fdp7qk0vvc75fc12n1lk940toqo2.apps.googleusercontent.com",
     clientSecret: "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",
-    callbackURL: "https://cartasuno.herokuapp.com/google/callback"
+    callbackURL: "https://juegodeluno-app.herokuapp.com/google/callback"
 },
     function (token, tokenSecret, profile, done) {
         //User.findOrCreate({ googleId: profile.id }, function (err, user) {

@@ -2,9 +2,8 @@ const sgMail = require('@sendgrid/mail')
 sgMail.setApiKey("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");
 
 
-//var url = "http://127.0.0.1:5000/";
-var url = "https://cartasuno.herokuapp.com/";
-var urld = "https://cartasuno.herokuapp.com/";
+var url = "https://juegodeluno-app.herokuapp.com/";
+var urld = "https://juegodeluno-app.herokuapp.com/";
 
 module.exports.enviarEmailConfirmacion = function (direccion, key) {
     
