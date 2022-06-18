@@ -12,8 +12,8 @@ passport.deserializeUser(function (user, done) {
 });
 
 passport.use(new GoogleStrategy({
-    clientID: "240617624599-m717fdp7qk0vvc75fc12n1lk940toqo2.apps.googleusercontent.com",
-    clientSecret: "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",
+    clientID: "989156031173-4oilhne5qb8c5otdgb8bg974il27shpg.apps.googleusercontent.com",
+    clientSecret: "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",
     callbackURL: "https://juegodeluno-app.herokuapp.com/google/callback"
 },
     function (token, tokenSecret, profile, done) {
