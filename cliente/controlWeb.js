@@ -146,7 +146,6 @@ function ControlWeb() {
             else {
                 iu.limpiar();
                 rest.registrarUsuario(correo, clave);
-                iu.mostrarModal("Debes confirmar tu correo electrónico para entrar a jugar! Comprueba la bandeja de correo no deseado!");
                 iu.mostrarInicio();
             }
         });
@@ -418,7 +417,7 @@ function ControlWeb() {
         $("#robarCarta").append(cadena);
 
         $("#btnRC").on("click", function () {
-            ws.robar(1);
+            ws.robarCarta(1);
         })
 
     };

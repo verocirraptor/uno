@@ -124,11 +124,11 @@ function ServidorWS() {
 				cli.enviarATodos(io, codigo, "abandonarPartida", { nick: nickTurno });
 			});
 
-			socket.on("robar", function (nick, num) {
+			socket.on("robarCarta", function (nick, num) {
 				var ju1 = juego.usuarios[nick];
 				if (ju1) {
 
-					var res = ju1.robar(num);
+					var res = ju1.robarCarta(num);
 					cli.enviarAlRemitente(socket, "mano", ju1.mano);
 
 					if (res == 0) {

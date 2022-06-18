@@ -100,15 +100,6 @@ app.get("/ok", haIniciado, function (request, response) {
     response.send({ nick: request.user.nick });
 });
 
-app.get("/confirmarUsuario/:direccion/:key", function (request, response) {
-    var email = request.params.direccion;
-    var key = request.params.key;
-
-    juego.confirmarUsuario(email,key,function(data){
-        response.redirect("/");
-    });
-});
-
 app.get("/crearPartida/:num/:nick", haIniciado, function (request, response) {
     var nick = request.params.nick;
     var num = request.params.num;
@@ -164,7 +155,7 @@ app.get("/robarCarta/:nick/:numero", function (request, response) {
 
     var res = { code: -1 };
     if (jugador.mano) {
-        jugador.robar(cartasARobar);
+        jugador.robarCarta(cartasARobar);
         res.code = 500;
     }
     response.send(res);

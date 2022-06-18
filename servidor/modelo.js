@@ -19,26 +19,9 @@ function Juego(test) {
                     function (usu) {
                     cb({ email: 'ok' });
                 });
-                moduloEmail.enviarEmailConfirmacion(email, key);
             }
             else {
                 cb({ email: "nook" })
-            }
-        })
-    }
-
-    this.confirmarUsuario = function (email, key, cb) {
-        var ju = this;
-
-        this.cad.encontrarUsuarioCriterio({ email: email, key: key, confirmada: false }, function (usr) {
-            if (usr) {
-                usr.confirmada = true;
-                ju.cad.modificarColeccionUsuarios(usr, function (result) {
-                    cb({ res: "ok" });
-                })
-            }
-            else {
-                cb({ res: "nook" });
             }
         })
     }

@@ -100,8 +100,8 @@ function ClienteRest() {
         });
     }
 
-    this.robar = function (nick, numero) {
-        $.getJSON("/robar/" + nick + "/" + numero, function (data) {
+    this.robarCarta = function (nick, numero) {
+        $.getJSON("/robarCarta/" + nick + "/" + numero, function (data) {
             console.log(data);
         });
     }

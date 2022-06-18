@@ -121,13 +121,13 @@ describe("El juego del UNO", function () {
       if (partida.turno.nick == ju1.nick) {
         ju1.manoInicial();
         expect(ju1.mano.length).toEqual(3);
-        ju1.robar(3);
+        ju1.robarCarta(3);
         expect(ju1.mano.length).toEqual(6);
       }
       else {
         ju2.manoInicial();
         expect(ju2.mano.length).toEqual(3);
-        ju1.robar(3);
+        ju1.robarCarta(3);
         expect(ju2.mano.length).toEqual(6);
       }
     });
@@ -142,7 +142,7 @@ describe("El juego del UNO", function () {
       partida.mazo = [];
       expect(partida.mesa.length).toBe(97);
       expect(ju1.mano.length).toBe(3);
-      ju1.robar(1);
+      ju1.robarCarta(1);
       expect(ju1.mano.length).toBe(3);
     });
 
@@ -170,10 +170,10 @@ describe("El juego del UNO", function () {
       ju2.manoInicial();
       expect(partida.mazo.length).toBe(97);
       expect(ju1.mano.length).toBe(3);
-      ju1.robar(97);
+      ju1.robarCarta(97);
       expect(ju1.mano.length).toBe(100);
       expect(partida.turno.nick).toBe(ju1.nick);
-      ju1.robar(1);
+      ju1.robarCarta(1);
       expect(partida.turno.nick).toBe(ju2.nick);
     });
 
@@ -190,7 +190,7 @@ describe("El juego del UNO", function () {
         carta = ju1.mano.find(function (el) {
           return el.tipo == "bloqueo"
         });
-        ju1.robar(1);
+        ju1.robarCarta(1);
       }
       expect(carta.tipo).toEqual("bloqueo");
       var ind = ju1.mano.indexOf(carta);
@@ -214,7 +214,7 @@ describe("El juego del UNO", function () {
         carta = ju1.mano.find(function (el) {
           return el.tipo == "comodin"
         });
-        ju1.robar(1);
+        ju1.robarCarta(1);
       }
       expect(carta.tipo).toEqual("comodin");
       var ind = ju1.mano.indexOf(carta);
@@ -238,7 +238,7 @@ describe("El juego del UNO", function () {
         carta = ju1.mano.find(function (el) {
           return el.tipo == "mas2"
         });
-        ju1.robar(1);
+        ju1.robarCarta(1);
       }
       expect(carta.tipo).toEqual("mas2");
       var ind = ju1.mano.indexOf(carta);
@@ -263,7 +263,7 @@ describe("El juego del UNO", function () {
         carta = ju1.mano.find(function (el) {
           return el.tipo == "mas4"
         });
-        ju1.robar(1);
+        ju1.robarCarta(1);
       }
       expect(carta.tipo).toEqual("mas4");
       var ind = ju1.mano.indexOf(carta);
