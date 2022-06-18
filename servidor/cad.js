@@ -103,7 +103,7 @@ function CAD() {
 
     this.conectar = function (callback) {
         var cad = this;
-        mongo.connect("mongodb+srv://patata:patata@clusteruno.qdqlg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", function (err, db) {
+        mongo.connect("mongodb+srv://patata:patata@cluster0.mwg6q.mongodb.net/?retryWrites=true&w=majority", function (err, db) {
             if (err) {
                 console.log("Error al conectar a la base de datos.");
 

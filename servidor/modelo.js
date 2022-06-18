@@ -49,7 +49,7 @@ function Juego(test) {
         this.cad.encontrarUsuarioCriterio({ email: email }, function (usr) {
             if (usr) {
                 var clavedesCifrada = cf.decryptStr(usr.clave, 'sEcrEtA');
-                if (clave == clavedesCifrada && usr.confirmada) {
+                if (clave == clavedesCifrada) {
                     cb(null, usr);
                     ju.agregarJugador(usr.nick);
                     console.log("Usuario " + usr + " inicia sesión.")
@@ -566,7 +566,7 @@ function Numero(valor, color) {
     this.tipo = "numero";
     this.valor = valor;
     this.color = color;
-    this.nombre = valor + color;
+    this.nombre = color + valor;
     this.comprobarEfecto = function (partida) {}
 }
 
@@ -574,7 +574,7 @@ function Cambio(valor, color) {
     this.tipo = "cambio";
     this.valor = valor;
     this.color = color;
-    this.nombre = "cambio" + color;
+    this.nombre = color + "cambio";
     this.comprobarEfecto = function (partida) {
         partida.cambiarDireccion();
     }
@@ -584,7 +584,7 @@ function Bloqueo(valor, color) {
     this.tipo = "bloqueo";
     this.valor = valor;
     this.color = color;
-    this.nombre = "bloqueo" + color;
+    this.nombre = color + "bloqueo";
     this.comprobarEfecto = function(partida) {
         partida.bloquearSiguiente();
     }
@@ -594,7 +594,7 @@ function Mas2(valor, color) {
     this.tipo = "mas2";
     this.valor = valor;
     this.color = color;
-    this.nombre = "mas2" + color;
+    this.nombre = color + "mas2";
     this.comprobarEfecto = function(partida) {
         partida.mas2Siguiente();
     }
@@ -604,7 +604,7 @@ function Mas4(valor, color) {
     this.tipo = "mas4";
     this.valor = valor;
     this.color = color;
-    this.nombre = "mas4" + color;
+    this.nombre = color + "mas4";
     this.comprobarEfecto = function(partida) {
         partida.mas4Siguiente();
     }
