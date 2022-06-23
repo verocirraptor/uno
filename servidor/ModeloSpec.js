@@ -30,36 +30,36 @@ describe("El juego del UNO", function () {
     });
 
     it("Comprobar mazo", function () {
-      expect(partida.mazo.length).toBe(104);
+      expect(partida.mazo.length).toBe(112);
       var rojo = partida.mazo.filter(function (each) {
         return each.color == "rojo";
       });
-      expect(rojo.length).toBe(25);
+      expect(rojo.length).toBe(27);
 
       var verde = partida.mazo.filter(function (each) {
         return each.color == "verde";
       });
-      expect(verde.length).toBe(25);
+      expect(verde.length).toBe(27);
 
       var amarillo = partida.mazo.filter(function (each) {
         return each.color == "amarillo";
       });
-      expect(amarillo.length).toBe(25);
+      expect(amarillo.length).toBe(27);
 
       var azul = partida.mazo.filter(function (each) {
         return each.color == "azul";
       });
-      expect(azul.length).toBe(25);
+      expect(azul.length).toBe(27);
 
       var mas2 = partida.mazo.filter(function (each) {
         return each.tipo == "mas2";
       });
-      expect(mas2.length).toBe(4);
+      expect(mas2.length).toBe(8);
 
       var mas4 = partida.mazo.filter(function (each) {
         return each.tipo == "mas4";
       });
-      expect(mas4.length).toBe(4);
+      expect(mas4.length).toBe(8);
 
       var comodin = partida.mazo.filter(function (each) {
         return each.tipo == "comodin";
@@ -104,8 +104,8 @@ describe("El juego del UNO", function () {
       ju2.unirAPartida(partida.codigo);
       ju1.manoInicial();
       ju2.manoInicial();
-      expect(ju1.mano.length).toEqual(3);
-      expect(ju2.mano.length).toEqual(3);
+      expect(ju1.mano.length).toEqual(7);
+      expect(ju2.mano.length).toEqual(7);
       expect(partida.turno.nick).toEqual(ju1.nick);
       expect(partida.direccion.nombre).toEqual("derecha");
       expect(partida.cartaActual).toBeDefined();
@@ -120,15 +120,15 @@ describe("El juego del UNO", function () {
       ju2.unirAPartida(partida.codigo);
       if (partida.turno.nick == ju1.nick) {
         ju1.manoInicial();
-        expect(ju1.mano.length).toEqual(3);
-        ju1.robarCarta(3);
-        expect(ju1.mano.length).toEqual(6);
+        expect(ju1.mano.length).toEqual(7);
+        ju1.robarCarta(1);
+        expect(ju1.mano.length).toEqual(8);
       }
       else {
         ju2.manoInicial();
-        expect(ju2.mano.length).toEqual(3);
-        ju1.robarCarta(3);
-        expect(ju2.mano.length).toEqual(6);
+        expect(ju2.mano.length).toEqual(7);
+        ju1.robarCarta(1);
+        expect(ju2.mano.length).toEqual(8);
       }
     });
 
@@ -141,9 +141,9 @@ describe("El juego del UNO", function () {
       partida.mesa = partida.mesa.concat(partida.mazo);
       partida.mazo = [];
       expect(partida.mesa.length).toBe(97);
-      expect(ju1.mano.length).toBe(3);
+      expect(ju1.mano.length).toBe(7);
       ju1.robarCarta(1);
-      expect(ju1.mano.length).toBe(3);
+      expect(ju1.mano.length).toBe(7);
     });
 
     it("Comprobar que se pasa de turno", function () {
@@ -169,9 +169,9 @@ describe("El juego del UNO", function () {
       ju1.manoInicial();
       ju2.manoInicial();
       expect(partida.mazo.length).toBe(97);
-      expect(ju1.mano.length).toBe(3);
+      expect(ju1.mano.length).toBe(7);
       ju1.robarCarta(97);
-      expect(ju1.mano.length).toBe(100);
+      expect(ju1.mano.length).toBe(104);
       expect(partida.turno.nick).toBe(ju1.nick);
       ju1.robarCarta(1);
       expect(partida.turno.nick).toBe(ju2.nick);
@@ -223,7 +223,7 @@ describe("El juego del UNO", function () {
       expect(partida.turno.nick).toEqual(ju1.nick);
       ju1.jugarCarta(ind);
       expect(partida.cartaActual.tipo).toEqual("comodin");
-      var manoConVentaja = manoActual -2;
+      var manoComodin = manoActual -2;
       expect(ju1.mano.length).toBe(manoComodin);
     });
 
