@@ -455,7 +455,7 @@ function ControlWeb() {
 
         var cadena = '<div id="mAlertaVerde" class="alert alert-success alert-dismissible">';
         cadena = cadena + '<button type="button" class="close" data-dismiss="alert">&times;</button>';
-        cadena = cadena + '<strong>¡Bien jugado! </strong>' + msg + '</div>';
+        cadena = cadena + '<strong>¡Bien hecho! </strong>' + msg + '</div>';
         $("#alerta").append(cadena);
     }
 
