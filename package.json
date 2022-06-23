@@ -15,7 +15,6 @@
   "bugs": {
     "url": "https://github.com/verocirraptor/uno/issues"
   },
-  "homepage": "https://verocirraptor.github.io/uno/",
   "dependencies": {
     "@sendgrid/mail": "^7.6.0",
     "body-parser": "^1.19.0",

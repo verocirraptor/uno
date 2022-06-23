@@ -45,7 +45,7 @@ function ClienteRest() {
             console.log(data);
             if (data.nick != -1) {
                 ws.nick = data.nick;
-                console.log("hola");
+                console.log("¡Bienvenido!");
                 $.cookie("nick", data.nick);
                 iu.mostrarHome(data);
             } else {

@@ -86,12 +86,12 @@ function ControlWeb() {
         cadena = cadena + '<form action="/action_page.php" class="was-validated">';
         cadena = cadena + '<div class="form-group">';
         cadena = cadena + '<input type="text" class="form-control" id="correo" placeholder="correo electrónico" name="uname" required>';
-        cadena = cadena + '<div class="valid-feedback">¡buen correo!</div>';
+        cadena = cadena + '<div class="valid-feedback">✓</div>';
         cadena = cadena + '<div class="invalid-feedback">Rellene este campo.</div>';
         cadena = cadena + '</div>';
         cadena = cadena + '<div class="form-group">';
         cadena = cadena + '<input type="password" class="form-control" id="clave" placeholder="contraseña" name="pswd" required>';
-        cadena = cadena + '<div class="valid-feedback">¡es secreta!</div>';
+        cadena = cadena + '<div class="valid-feedback">✓</div>';
         cadena = cadena + '<div class="invalid-feedback">Rellene este campo.</div>';
         cadena = cadena + '</div>';
         cadena = cadena + '<button type="submit" id="btnLU" class="btn btn-primary">Entrar</button>';
@@ -117,18 +117,18 @@ function ControlWeb() {
         cadena = cadena + '<form action="/action_page.php" class="was-validated">';
         cadena = cadena + '<div class="form-group">';
         cadena = cadena + '<input type="text" class="form-control" id="correo" placeholder="correo electrónico" name="uname" required>';
-        cadena = cadena + '<div class="valid-feedback">¡buen correo!</div>';
+        cadena = cadena + '<div class="valid-feedback">✓</div>';
         cadena = cadena + '<div class="invalid-feedback">Rellene este campo.</div>';
         cadena = cadena + '</div>';
         cadena = cadena + '<div class="form-group">';
         cadena = cadena + '<input type="password" class="form-control" id="contraseña" placeholder="contraseña" name="pswd" required>';
-        cadena = cadena + '<div class="valid-feedback">¡es secreta!</div>';
+        cadena = cadena + '<div class="valid-feedback">✓</div>';
         cadena = cadena + '<div class="invalid-feedback">Rellene este campo.</div>';
         cadena = cadena + '</div>';
         cadena = cadena + '<div class="form-group form-check">';
         cadena = cadena + '<label class="form-check-label">';
         cadena = cadena + '<input class="form-check-input" type="checkbox" name="remember" required> Acepto los términos.';
-        cadena = cadena + '<div class="valid-feedback">¡perfecto!</div>';
+        cadena = cadena + '<div class="valid-feedback">✓</div>';
         cadena = cadena + '<div class="invalid-feedback">Acepta antes de continuar.</div>';
         cadena = cadena + '</label>';
         cadena = cadena + '</div>';
@@ -192,7 +192,7 @@ function ControlWeb() {
 
     this.mostrarTodosResultados = function () {
         var cadena = '<div class="container text-center" id="mTR">';
-        cadena = cadena + '<p>¡Consulta los resultados de las últimas partidas!</p>';
+        cadena = cadena + '<p>¡Resultados de tus últimas partidas!</p>';
         cadena = cadena + '<button type="button" id="btnTR" class="btn btn-outline-info">consultar resultados</button>'
         cadena = cadena + '<h6><br></h6></div>';
 
@@ -206,7 +206,7 @@ function ControlWeb() {
 
     this.mostrarVolver = function () {
         var cadena = '<div id="mV">';
-        cadena = cadena + '<p>¿Listo para jugar?</p>';
+        cadena = cadena + '<p>¿Juegas?</p>';
         cadena = cadena + '<button type="button" id="btnV" class="btn btn-outline-info">Volver a inicio</button><br/></div>';
 
         $("#volver").append(cadena);
@@ -218,7 +218,7 @@ function ControlWeb() {
     };
 
     this.mostrarNick = function (nick) {
-        var cadena = '<div id="mN"><label for="mostrarNick"><h5>Datos Jugador</h5></label>';
+        var cadena = '<div id="mN"><label for="mostrarNick"><h5>Info del jugador</h5></label>';
         cadena = cadena + '<div id="mN"><label for="mostrarNick"><span style="font-weight:bold">Nick: </span>' + nick + '</label>';
         this.nick = nick;
 
@@ -226,13 +226,13 @@ function ControlWeb() {
     };
 
     this.mostrarCodigo = function (codigo) {
-        var cadena = '<div id="mC"><span style="font-weight:bold">Codigo: </span>' + codigo + '</div>';
+        var cadena = '<div id="mC"><span style="font-weight:bold">Código: </span>' + codigo + '</div>';
 
         $("#mostrarCodigo").append(cadena);
     };
 
     this.mostrarSuerte = function () {
-        var cadena = '<div id="mS"><p>¡Suerte en esta partida!</p></div>';
+        var cadena = '<div id="mS"><p>¡Mucha suerte!</p></div>';
 
         $("#mostrarSuerte").append(cadena);
     }
@@ -287,9 +287,9 @@ function ControlWeb() {
             //codigo que controla el click sobre el btn
             var numero = $('#numJug').val();
             if (numero == "") {
-                iu.mostrarAlertaRoja("Introduzca el número de jugadores para crear la partida.");
+                iu.mostrarAlertaRoja("Introduce el número de jugadores para crear la partida.");
             } else if ((numero < 2) || (numero > 8)) {
-                iu.mostrarAlertaRoja("Introduzca un número entre 2 y 8 jugadores.");
+                iu.mostrarAlertaRoja("Introduce un número entre 2 y 8 jugadores.");
                 $('#numJug').val("");
             }
             else {
@@ -300,7 +300,7 @@ function ControlWeb() {
     }
 
     this.mostrarEsperando = function () {
-        var cadena = '<div id="mEsp"><h6>Espera al resto de jugadores</h6>';
+        var cadena = '<div id="mEsp"><h6>Espera al resto de jugadores.</h6>';
         cadena = cadena + '<br><div class="spinner-border text-primary"></div></div>';
 
         $("#esperando").append(cadena);
@@ -324,10 +324,9 @@ function ControlWeb() {
         $("#unirAPartida").append(cadena);
 
         $("#btnUAP").on("click", function () {
-            //codigo que controla el click sobre el btn
             var code = $('#code').val();
             if (code == "") {
-                iu.mostrarAlertaRoja("Introduzca un código válido.");
+                iu.mostrarAlertaRoja("Introduce un código válido.");
             }
             else {
                 ws.unirAPartida(code, ws.nick);
@@ -338,15 +337,13 @@ function ControlWeb() {
     }
 
     this.mostrarObtenerTodasPartidas = function (lista) {
-        //no se puede llamar dentro porque es una llamada asíncrona
-
         $("#mOTP").remove();
 
         var cadena = '<div id="mOTP"><label><h5><br>Partidas creadas</h5></label>';
         cadena = cadena + '<div class="list-group">';
         for (i = 0; i < Object.keys(lista).length; i++) {
             cadena = cadena + '<a href="#" class="list-group-item list-group-item-action" value="'
-                + lista[i].codigo + '"<span style="font-weight:bold">Codigo: </span>'
+                + lista[i].codigo + '"<span style="font-weight:bold">Código: </span>'
                 + lista[i].codigo + ' <span style="font-weight:bold">Dueño: </span>' + lista[i].propietario + '</a>';
         }
         cadena = cadena + '</div>';
@@ -447,7 +444,7 @@ function ControlWeb() {
 
         var cadena = '<div id="mAlertaRoja" class="alert alert-danger alert-dismissible">';
         cadena = cadena + '<button type="button" class="close" data-dismiss="alert">&times;</button>';
-        cadena = cadena + '<strong>Atención! </strong>' + msg + '</div>';
+        cadena = cadena + '<strong>¡Atención! </strong>' + msg + '</div>';
         $("#alerta").append(cadena);
     }
 
@@ -458,7 +455,7 @@ function ControlWeb() {
 
         var cadena = '<div id="mAlertaVerde" class="alert alert-success alert-dismissible">';
         cadena = cadena + '<button type="button" class="close" data-dismiss="alert">&times;</button>';
-        cadena = cadena + '<strong>Genial! </strong>' + msg + '</div>';
+        cadena = cadena + '<strong>¡Bien jugado! </strong>' + msg + '</div>';
         $("#alerta").append(cadena);
     }
 
@@ -469,7 +466,7 @@ function ControlWeb() {
 
         var cadena = '<div id="mAlertaAzul" class="alert alert-primary alert-dismissible">';
         cadena = cadena + '<button type="button" class="close" data-dismiss="alert">&times;</button>';
-        cadena = cadena + '<strong>Al jugador ' + msg + ' le queda solo una carta! </strong></div>';
+        cadena = cadena + '<strong>¡Al jugador ' + msg + ' le queda sólo una carta! </strong></div>';
         $("#alerta").append(cadena);
     }
 }

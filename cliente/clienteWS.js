@@ -51,7 +51,7 @@ function ClienteWS() {
 	this.servidorWSCliente = function () {
 		var cli = this;
 		this.socket.on("connect", function () {
-			console.log("conectado al servidor WS");
+			console.log("Conectado al servidor WS.");
 		});
 
 		this.socket.on("partidaCreada", function (data) {
